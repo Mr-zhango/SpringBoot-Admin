@@ -1,0 +1,115 @@
+#redis
+#spring:redis:host: localhost
+#spring:redis:port: 6379
+#spring:redis:lettuce:pool:max-active: 5
+#spring:redis:lettuce:pool:max-idle: 1
+#spring:redis:lettuce:pool:min-idle: 1
+#spring:redis:lettuce:pool:max-wait: 5000
+#spring:redis:timeout: 30000
+server:
+  port: 10086
+  tomcat:
+    uri-encoding: utf-8
+  servlet:
+    session:
+      timeout: 30m
+
+spring:
+  profiles:
+    active: local
+  #jdbc配置
+  main:
+    allow-bean-definition-overriding: true
+
+
+
+  # druid 配置
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    druid:
+#      initial-size: 5
+#    min-idle: 5
+#    max-active: 20
+#    max-wait: 60000
+#    test-while-idle: true
+#    time-between-eviction-runs-millis: 60000
+#    min-evictable-idle-time-millis: 30000
+#    validation-query: select 'x'
+#    test-on-borrow: false
+#    test-on-return: false
+#    exception-sorter: true
+#    pool-prepared-statements: true
+#    max-pool-prepared-statement-per-connection-size: 20
+#    filters: stat,wall
+#
+
+
+#shiro:
+#  web:
+#    enabled: true
+#  loginUrl: /login
+
+  #连接池的设置
+  #初始化时建立物理连接的个数
+ # spring:datasource:druid:initial-size: 5
+  #最小连接池数量
+#  spring:datasource:druid:min-idle: 5
+  #最大连接池数量 maxIdle已经不再使用
+ # spring:datasource:druid:max-active: 20
+  #获取连接时最大等待时间，单位毫秒
+ # spring:datasource:druid:max-wait: 60000
+  #申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。
+ # spring:datasource:druid:test-while-idle: true
+  #既作为检测的间隔时间又作为testWhileIdel执行的依据
+ # spring:datasource:druid:time-between-eviction-runs-millis: 60000
+  #销毁线程时检测当前连接的最后活动时间和当前时间差大于该值时，关闭当前连接
+ # spring:datasource:druid:min-evictable-idle-time-millis: 30000
+  #用来检测连接是否有效的sql 必须是一个查询语句
+  #mysql中为 select 'x'
+  #oracle中为 select 1 from dual
+  #spring:datasource:druid:validation-query: select 'x'
+  #申请连接时会执行validationQuery检测连接是否有效,开启会降低性能,默认为true
+  #spring:datasource:druid:test-on-borrow: false
+  #归还连接时会执行validationQuery检测连接是否有效,开启会降低性能,默认为true
+ # spring:datasource:druid:test-on-return: false
+  #当数据库抛出不可恢复的异常时,抛弃该连接
+  #spring:datasource:druid:exception-sorter: true
+  #是否缓存preparedStatement,mysql5:5+建议开启
+#  spring:datasource:druid:pool-prepared-statements: true
+  #当值大于0时poolPreparedStatements会自动修改为true
+  #spring:datasource:druid:max-pool-prepared-statement-per-connection-size: 20
+  #配置扩展插件
+  #spring:datasource:druid:filters: stat,wall
+  #通过connectProperties属性来打开mergeSql功能；慢SQL记录
+  #spring:datasource:druid:connection-properties: druid:stat:mergeSql: true;druid:stat:slowSqlMillis: 500
+  #合并多个DruidDataSource的监控数据
+ # spring:datasource:druid:use-global-data-source-stat: true
+#设置访问druid监控页的账号和密码,默认没有
+#spring:datasource:druid:stat-view-servlet:login-username: admin
+#spring:datasource:druid:stat-view-servlet:login-password: admin
+#
+
+##
+#shiro.enabled                                        true      启用Shiro的Spring模块
+  #shiro.web.enabled                                    true      启用Shiro的Spring Web模块
+  #shiro.annotations.enabled                            true      为Shiro的注释启用Spring支持
+  #shiro.sessionManager.deleteInvalidSessions           true      从会话存储中删除无效会话
+  #shiro.sessionManager.sessionIdCookieEnabled          true      启用会话ID到cookie，用于会话跟踪
+  #shiro.sessionManager.sessionIdUrlRewritingEnabled    true      启用会话URL重写支持
+  #shiro.userNativeSessionManager                       false     如果启用，Shiro将管理HTTP会话而不是容器
+  #shiro.sessionManager.cookie.name                  JSESSIONID   会话cookie名称
+  #shiro.sessionManager.cookie.maxAge                     -1      会话cookie最大年龄
+  #shiro.sessionManager.cookie.domain                    空值      会话cookie域
+  #shiro.sessionManager.cookie.path                      空值      会话cookie路径
+  #shiro.sessionManager.cookie.secure                  false      会话cookie安全标志
+  #shiro.rememberMeManager.cookie.name            rememberMe      RememberMe cookie名称
+  #shiro.rememberMeManager.cookie.maxAge                一年       RememberMe cookie最大年龄
+  #shiro.rememberMeManager.cookie.domain                空值       RememberMe cookie域名
+  #shiro.rememberMeManager.cookie.path                  空值       RememberMe cookie路径
+  #shiro.rememberMeManager.cookie.secure               false      RememberMe cookie安全标志
+  #shiro.loginUrl                                 /login.jsp      未经身份验证的用户重定向到登录页面时使用的登录URL
+  #shiro.successUrl                                       /      用户登录后的默认登录页面（如果在当前会话中找不到替代）
+  #shiro.unauthorizedUrl                                空值      页面将用户重定向到未授权的位置（403页）
+logging:
+  config: classpath:logback-spring.xml
+  path: ./logs/htadmin_log.log
+
